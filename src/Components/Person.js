@@ -5,7 +5,9 @@ class Person extends Component {
 
 
         return(
-            <p> First React Component </p>
+            <p> Hey, I am {this.props.name} and {this.props.age } years old !
+            {this.props.children}
+            </p>
         )
     }
 }

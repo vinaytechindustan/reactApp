@@ -2,10 +2,8 @@ import React, {Component} from 'react';
 import '../App.css';
 class Person extends Component {
     render(){
-
-
         return(
-            <p> Hey, I am {this.props.name} and {this.props.age } years old !
+            <p onClick={this.props.click}> Hey, I am {this.props.name} and {this.props.age } years old !
             {this.props.children}
             </p>
         )

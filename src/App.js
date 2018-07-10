@@ -26,10 +26,15 @@ class App extends Component {
       { 
         this.state.showme ?
           <div>
-          <Person className="App" name={this.state.persons[0].name} age={this.state.persons[0].age}> I am feeling good </Person>
+            {this.state.persons.map(
+              person=>{
+                return <Person name={person.name} age={person.age}></Person>
+              }
+            )}
+        {/*   <Person className="App" name={this.state.persons[0].name} age={this.state.persons[0].age}> I am feeling good </Person>
           <Person name={this.state.persons[1].name} age={this.state.persons[1].age} click={()=>this.nameHandler('Max')}> </Person>
           <Person name={this.state.persons[2].name} age={this.state.persons[2].age}> </Person>
-          </div>: null
+  */}         </div>: null
       }
           </div> 
       

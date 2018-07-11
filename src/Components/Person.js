@@ -3,7 +3,7 @@ import '../App.css';
 class Person extends Component {
     render(){
         return(
-            <p onClick={this.props.click}> Hey, I am {this.props.name} and {this.props.age } years old !
+            <p onDoubleClick={this.props.click}> Hey, I am {this.props.name} and {this.props.age } years old !
             {this.props.children}
             </p>
         )

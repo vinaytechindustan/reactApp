@@ -16,6 +16,13 @@ class App extends Component {
     this.setState({showme:!togs});
     
   }
+
+  deletePersonHandler=(index)=>{
+    const persons=[...this.state.persons];
+    persons.splice(index,1);
+    this.setState({persons})
+
+  }
   render() {
     const title ='dk';
     return (
@@ -27,10 +34,11 @@ class App extends Component {
         this.state.showme ?
           <div>
             {this.state.persons.map(
-              person=>{
-                return <Person name={person.name} age={person.age}></Person>
+              (person,index)=>{
+                return <Person click={()=>this.deletePersonHandler(index)} name={person.name} age={person.age}></Person>
               }
             )}
+
         {/*   <Person className="App" name={this.state.persons[0].name} age={this.state.persons[0].age}> I am feeling good </Person>
           <Person name={this.state.persons[1].name} age={this.state.persons[1].age} click={()=>this.nameHandler('Max')}> </Person>
           <Person name={this.state.persons[2].name} age={this.state.persons[2].age}> </Person>

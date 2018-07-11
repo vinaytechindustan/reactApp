@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Person from './Components/Person';
+import Person from '../Components/Person';
+import Prepro from '../Components/Perpro';
 
 class App extends Component {
   state={
@@ -33,28 +34,32 @@ class App extends Component {
     ersons[pIndex]=person;
     this.setState({persons:ersons}); 
   }
+  style={
+    backgroundColor:'green'
+  }
   render() {
     const title ='dk';
+ 
     return (
       <div>
       <h1> First React </h1>
       <h1> hey {title}</h1>
-      <button onClick={this.toggleHandler}>Click </button>
+      <button style={this.style} onClick={this.toggleHandler}>Click </button>
       { 
         this.state.showme ?
           <div>
-            {this.state.persons.map(
-              (person,index)=>{
-                return <Person click={()=>this.deletePersonHandler(index)} name={person.name} 
-                age={person.age} key={person.id} chan={(event)=>this.changeHandler(event,person.id)}></Person>
-              }
-            )}
+
+        <Prepro persons={this.state.persons} 
+        click={this.deletePersonHandler} chan={this.changeHandler}
+        ></Prepro>
+        
 
         {/*   <Person className="App" name={this.state.persons[0].name} age={this.state.persons[0].age}> I am feeling good </Person>
           <Person name={this.state.persons[1].name} age={this.state.persons[1].age} click={()=>this.nameHandler('Max')}> </Person>
           <Person name={this.state.persons[2].name} age={this.state.persons[2].age}> </Person>
-  */}         </div>: null
+  */}         </div>  : null
       }
+     
           </div> 
       
     );
